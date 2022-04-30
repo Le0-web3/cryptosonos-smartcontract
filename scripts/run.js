@@ -37,13 +37,11 @@ const main = async () => {
  // console.log("txn : ", txn);
 
  let txn2;
- txn2 = await gameContract.hostAParty(100);
+ txn2 = await gameContract.lastHostedAt();
  await txn2.wait();
-// console.log("txn : ", txn);
+ console.log("txn2 : ", txn2);
 
 };
-
-
   
   const runMain = async () => {
     try {

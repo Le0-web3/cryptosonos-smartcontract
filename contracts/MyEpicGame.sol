@@ -94,7 +94,7 @@ mapping(address => uint256) public lastHostedAt; // for cooldown
     _tokenIds.increment();
 
   // Set the initial seeds
-    seed1 = (block.timestamp + block.difficulty) % 100;
+    seed1 = (block.timestamp + block.difficulty) % 1000;
     seed2 = (block.timestamp + block.difficulty) % 12;
   }
 
@@ -157,7 +157,7 @@ function hostAParty() public {
     console.log("%s has thrown a party!", msg.sender);
     console.log("probatomint : ", _probatomint);
     parties.push(Party(msg.sender, block.timestamp));
-    seed1 = (block.difficulty + block.timestamp + seed1) % 100;
+    seed1 = (block.difficulty + block.timestamp + seed1) % 1000;
     seed2 = (block.difficulty + block.timestamp + seed2) % 12;
     console.log("Random #1 generated: %d", seed1);
     console.log("Random #2 generated: %d", seed2);
