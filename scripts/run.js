@@ -31,6 +31,8 @@ const main = async () => {
   };
   */
 
+
+
   let txn;
   txn = await gameContract.hostAParty(100);
   await txn.wait();
