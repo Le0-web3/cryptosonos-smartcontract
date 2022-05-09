@@ -104,6 +104,7 @@ function hostAParty(uint _probatomint) external {
   seed2 = (block.difficulty + block.timestamp + seed2) % 12;
     if(seed1 <= _probatomint) {
       mintBoxNFT(seed2);
+      console.log("minted");
     } // if -> mint
 } // if cooldown
 else {
@@ -113,19 +114,46 @@ else {
 emit PartyComplete(block.timestamp, cooldownRespected);
 }
 
+
+// original
+
 function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-  BoxAttributes memory boxAttributes = nftHolderAttributes[_tokenId];
-  string memory strFrequence = boxAttributes.frequence;
-  string memory strMood = boxAttributes.mood;
+  BoxAttributes memory bAttributes = nftHolderAttributes[_tokenId];
+  /*
+  string memory strFrequence = bAttributes.frequence;
+  string memory strMood = bAttributes.mood;
+
   string memory json = Base64.encode(
     abi.encodePacked(
-      '{"frequence": "',
-      boxAttributes.frequence,
+      '{"name": "',
+      bAttributes.frequence,
       ' -- NFT #: ',
       Strings.toString(_tokenId),
       '", "description": "A soundsystem box", "image": "ipfs://',
-      boxAttributes.imageURI,
-      '", "attributes": [ { "frequence": ',strFrequence,', "mood":',strMood,' ]}'
+      bAttributes.imageURI,
+      '", "attributes": [ { "frequence": ',strFrequence,', "mood":',strMood,'} ]}'
+    )
+  );
+  string memory output = string(
+    abi.encodePacked("data:application/json;base64,", json)
+  );
+  return output;
+}
+*/
+
+  // testeuh
+  
+  string memory json = Base64.encode(
+    bytes(
+      string(
+        abi.encodePacked(
+          '{"name": " CryptoSonosNFT #: ',
+          Strings.toString(_tokenId),
+          '", "description": "A soundsystem box", "image": "ipfs://',
+          bAttributes.imageURI,
+          '", "attributes": [ { "fequence": "',bAttributes.frequence,'"}, { "mood": "',bAttributes.mood,'"} ]}'
+        )
+      )
     )
   );
   string memory output = string(

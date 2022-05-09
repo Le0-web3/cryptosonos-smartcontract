@@ -34,14 +34,24 @@ const main = async () => {
 
 
   let txn;
-  txn = await gameContract.hostAParty(100);
+  txn = await gameContract.hostAParty(1000);
   await txn.wait();
  // console.log("txn : ", txn);
 
+ let txn3;
+ txn3 = await gameContract.hostAParty(1000);
+ await txn3.wait();
+// console.log("txn : ", txn);
+
  let txn2;
- txn2 = await gameContract.lastHostedAt();
- await txn2.wait();
+ txn2 = await gameContract.tokenURI(1);
+ // await txn2.wait();
  console.log("txn2 : ", txn2);
+
+ let txn4;
+ txn4 = await gameContract.tokenURI(1);
+ // await txn2.wait();
+ console.log("txn4 : ", txn4);
 
 };
   
