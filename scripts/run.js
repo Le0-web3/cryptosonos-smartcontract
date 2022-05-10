@@ -48,10 +48,6 @@ const main = async () => {
  // await txn2.wait();
  console.log("txn2 : ", txn2);
 
- let txn4;
- txn4 = await gameContract.tokenURI(1);
- // await txn2.wait();
- console.log("txn4 : ", txn4);
 
 };
   

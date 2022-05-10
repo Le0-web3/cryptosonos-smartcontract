@@ -141,8 +141,6 @@ function tokenURI(uint256 _tokenId) public view override returns (string memory)
 }
 */
 
-  // testeuh
-  
   string memory json = Base64.encode(
     bytes(
       string(
@@ -151,7 +149,7 @@ function tokenURI(uint256 _tokenId) public view override returns (string memory)
           Strings.toString(_tokenId),
           '", "description": "A soundsystem box", "image": "ipfs://',
           bAttributes.imageURI,
-          '", "attributes": [ { "fequence": "',bAttributes.frequence,'"}, { "mood": "',bAttributes.mood,'"} ]}'
+          '", "attributes": [ { "trait_type": "frequence", "value": "',bAttributes.frequence,'"}, { "trait_type": "mood", "value": "',bAttributes.mood,'"} ]}'
         )
       )
     )

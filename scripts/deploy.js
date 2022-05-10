@@ -4,7 +4,6 @@ full tekno: QmXq97vqJ3EeBkcpWkroSTTMG5QtAsUM15m6qfpyKKPChX
 full dub: QmWCDwumzYJNz1GDv6y9JcbJc5sB12y4dGtjnSDxLoUUFL
 full jungle: QmWn65XEjy5k98DakvDWLtzpQugpy9eNvV6z52UeBCwzba
 */
-// testeuh
 
 const main = async () => {
     const gameContractFactory = await hre.ethers.getContractFactory('MyEpicGame');
