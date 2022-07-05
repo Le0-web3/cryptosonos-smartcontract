@@ -96,7 +96,7 @@ function mintBoxNFT(uint _boxIndex) private {
 
 function hostAParty(uint _probatomint) external {
   bool cooldownRespected = true;
-  cooldownRespected = lastHostedAt[msg.sender] + 2 minutes < block.timestamp;
+  cooldownRespected = lastHostedAt[msg.sender] + 24 hours < block.timestamp;
     if(cooldownRespected) {
   lastHostedAt[msg.sender] = block.timestamp;
   parties.push(Party(msg.sender, block.timestamp));
