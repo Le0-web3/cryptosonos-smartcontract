@@ -96,8 +96,23 @@ function mintBoxNFT(uint _boxIndex) private {
 
 function hostAParty(uint _probatomint) external {
   bool cooldownRespected = true;
+  uint userNftCount;
+  uint maxProba;
+  if (ERC721.balanceOf(msg.sender) <= 14) {
+    userNftCount = ERC721.balanceOf(msg.sender);
+  }
+  else {
+    userNftCount = 14;
+  }
+  maxProba = userNftCount * 16 + 37;
+
+  console.log("userNftCount : ", userNftCount);
+  console.log("probatomint : ", _probatomint);
+  console.log("maxProba : ", maxProba);
   cooldownRespected = lastHostedAt[msg.sender] + 24 hours < block.timestamp;
-    if(cooldownRespected) {
+  // cooldownRespected = true; comment out to turn on the cooldown
+
+    if(cooldownRespected && _probatomint < maxProba) {
   lastHostedAt[msg.sender] = block.timestamp;
   parties.push(Party(msg.sender, block.timestamp));
   seed1 = (block.difficulty + block.timestamp + seed1) % 1000;
@@ -106,11 +121,11 @@ function hostAParty(uint _probatomint) external {
       mintBoxNFT(seed2);
       console.log("minted");
     } // if -> mint
-} // if cooldown
-else {
-  cooldownRespected = false;
-  console.log("wait a bit");
-  } 
+  } // if cooldown
+  else {
+    cooldownRespected = false;
+    console.log("wait a bit");
+    } 
 emit PartyComplete(block.timestamp, cooldownRespected);
 }
 

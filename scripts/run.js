@@ -34,20 +34,49 @@ const main = async () => {
 
 
   let txn;
-  txn = await gameContract.hostAParty(1000);
+  txn = await gameContract.hostAParty(0);
   await txn.wait();
  // console.log("txn : ", txn);
 
- let txn3;
- txn3 = await gameContract.hostAParty(1000);
- await txn3.wait();
+ let txn2;
+ txn2 = await gameContract.hostAParty(35);
+ await txn2.wait();
 // console.log("txn : ", txn);
 
- let txn2;
+let txn3;
+txn3 = await gameContract.hostAParty(35);
+await txn3.wait();
+
+ let txn4;
+ txn4 = await gameContract.hostAParty(35);
+ await txn4.wait();
+
+
+ let txn5;
+ txn5 = await gameContract.hostAParty(35);
+ await txn5.wait();
+ /*
+ let txn5;
  txn2 = await gameContract.tokenURI(1);
  // await txn2.wait();
- console.log("txn2 : ", txn2);
+ console.log("txn5 : ", txn5);
+*/
 
+ let txn6;
+ txn6 = await gameContract.hostAParty(35);
+ await txn6.wait();
+
+ let txn7;
+ txn7 = await gameContract.hostAParty(35);
+ await txn7.wait();
+
+ let txn8;
+ txn8 = await gameContract.hostAParty(37);
+ await txn8.wait();
+
+ let txn9;
+ txn9 = await gameContract.hostAParty(500);
+ await txn9.wait();
 
 };
   
