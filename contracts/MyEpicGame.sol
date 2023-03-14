@@ -104,20 +104,32 @@ function hostAParty(uint _probatomint) external {
   else {
     userNftCount = 14;
   }
-  maxProba = userNftCount * 16 + 37;
+  maxProba = userNftCount * 16 + 40;
 
   console.log("userNftCount : ", userNftCount);
   console.log("probatomint : ", _probatomint);
   console.log("maxProba : ", maxProba);
   cooldownRespected = lastHostedAt[msg.sender] + 24 hours < block.timestamp;
-  // cooldownRespected = true; comment out to turn on the cooldown
+  cooldownRespected = true; // comment out to turn on the cooldown
 
     if(cooldownRespected && _probatomint < maxProba) {
   lastHostedAt[msg.sender] = block.timestamp;
   parties.push(Party(msg.sender, block.timestamp));
   seed1 = (block.difficulty + block.timestamp + seed1) % 1000;
   seed2 = (block.difficulty + block.timestamp + seed2) % 12;
-    if(seed1 <= _probatomint) {
+      if(_probatomint == 261) { // if(seed1 <= _probatomint && _probatomint == 261) for production
+      mintBoxNFT(12);
+      console.log("minted fulltekno");
+    } // if -> mint fulltekno
+      if(_probatomint == 262) { // if(seed1 <= _probatomint && _probatomint == 262) for production
+      mintBoxNFT(13);
+      console.log("minted fulldub");
+    } // if -> mint fulldub
+      if(_probatomint == 263) { // if(seed1 <= _probatomint && _probatomint == 263) for production
+      mintBoxNFT(14);
+      console.log("minted fulljungle");
+    } // if -> mint fulldub
+    if(seed1 == seed1) { // (seed1 <= _probatomint) for production
       mintBoxNFT(seed2);
       console.log("minted");
     } // if -> mint

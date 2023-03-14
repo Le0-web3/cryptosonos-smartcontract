@@ -9,9 +9,9 @@ const main = async () => {
     const gameContractFactory = await hre.ethers.getContractFactory('MyEpicGame');
     
     const gameContract = await gameContractFactory.deploy(
-        ["toptekno", "midtekno", "kicktekno", "subtekno", "topdub", "middub", "kickdub", "subdub", "topjungle", "midjungle", "kickjungle", "subjungle"],       // Names
-        ["top", "mid", "kick", "sub", "top", "mid", "kick", "sub", "top", "mid", "kick", "sub"],                    // frequences
-        ["tekno", "tekno", "tekno", "tekno", "dub", "dub", "dub", "dub", "jungle", "jungle", "jungle", "jungle"],                    // moods
+        ["toptekno", "midtekno", "kicktekno", "subtekno", "topdub", "middub", "kickdub", "subdub", "topjungle", "midjungle", "kickjungle", "subjungle", "fulltekno", "fulldub", "fulljungle"],       // Names
+        ["top", "mid", "kick", "sub", "top", "mid", "kick", "sub", "top", "mid", "kick", "sub", "full", "full", "full"],                    // frequences
+        ["tekno", "tekno", "tekno", "tekno", "dub", "dub", "dub", "dub", "jungle", "jungle", "jungle", "jungle", "tekno", "dub", "jungle"],                    // moods
         ["QmaCyhjGKVv7ctGTqxD9zDEWvuHM12tWYqPAo2kD8HLeDt", // tekno top
         "QmUNgESyVv65FCnRFAFQidd6vcf9szgJ6Zux7fygsFT9mv", 
         "QmbRmEBegpTQHbtthHK8UioPkwp9og3fKPuPmjKoF3bh8Q", 
@@ -23,7 +23,10 @@ const main = async () => {
         "QmYfARoTJZSghovyQj6ukVepZkn8YRUhX51Ro9RAqfPkDk", // jungle
         "QmTi2adypcZoBWnSL6yzprCPUnKHQWixe7kXyZsp7BeQu7",
         "QmaxPAto9RbRRRAmN6oPPbDxfnYGvubs5XGDhbdKSjmrWb", 
-        "QmaM1ozSSXSdr3v1TBAQdibgMkoSFy3RS6cJokwrN1FXzE"]
+        "QmaM1ozSSXSdr3v1TBAQdibgMkoSFy3RS6cJokwrN1FXzE",
+        "QmXq97vqJ3EeBkcpWkroSTTMG5QtAsUM15m6qfpyKKPChX", // fulltekno
+        "QmWCDwumzYJNz1GDv6y9JcbJc5sB12y4dGtjnSDxLoUUFL", // fulldub
+        "QmWn65XEjy5k98DakvDWLtzpQugpy9eNvV6z52UeBCwzba"] // fulljungle
     );  // deploying locally, what we give to constructor
   
     await gameContract.deployed();
